@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {
@@ -7,20 +6,27 @@ import {
   SignedIn,
   SignedOut,
   UserButton
-} from '@clerk/nextjs'
+} from '@clerk/nextjs';
+import { ModalProvider } from "@/providers/model-provider";
+import { title } from "process";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ['latin']})
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "project kayo dashboard",
-};
+export const metadata = {
+  title: 'KaYo Dashboard',
+  description: 'Project KaYo Dashboard',
+}
 
-export default function RootLayout({ children,}: { children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
+          <ModalProvider/>
           <SignedOut>
             <SignInButton />
           </SignedOut>
@@ -32,4 +38,4 @@ export default function RootLayout({ children,}: { children: React.ReactNode}) {
       </html>
     </ClerkProvider>
   )
-};
+}
