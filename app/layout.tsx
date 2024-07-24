@@ -9,6 +9,7 @@ import {
 } from '@clerk/nextjs';
 import { ModalProvider } from "@/providers/model-provider";
 import { title } from "process";
+import prismadb from "@/lib/prismadb";
 
 const inter = Inter({subsets: ['latin']})
 
